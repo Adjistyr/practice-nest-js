@@ -17,8 +17,13 @@ export class ProductsService {
     return this.productRepo.save(product);
   }
 
-  findAll() {
-    return this.productRepo.find();
+  async findAll() {
+    const products = await this.productRepo.find();
+    return {
+      statusCode: 200,
+      message: 'suskes',
+      data: products,
+    };
   }
 
   async findOne(id: number) {
