@@ -5,6 +5,7 @@ import { TestController } from './test/test.controller';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
+import { PartnersModule } from './partners/partners.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ProductsModule } from './products/products.module';
     }),
     UserModule,
     ProductsModule,
+    PartnersModule,
   ],
   controllers: [AppController, TestController],
   providers: [AppService],

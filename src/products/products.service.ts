@@ -33,9 +33,9 @@ export class ProductsService {
   }
 
   async update(id: number, dto: UpdateProductDto) {
-    await this.findOne(id);
-    await this.productRepo.update(id, dto);
-    return this.findOne(id);
+    const product = await this.findOne(id); // throw NotFoundException kalau ga ada
+    Object.assign(product, dto);
+    return this.productRepo.save(product);
   }
 
   async remove(id: number) {
